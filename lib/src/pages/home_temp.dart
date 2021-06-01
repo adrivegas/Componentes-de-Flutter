@@ -8,7 +8,9 @@ class HomePageTemp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Componentes Temp'),
       ),
-      body: ListView(children: _crearItems()),
+      body: ListView(
+          // children: _crearItems()
+          children: _crearItemsCorta()),
     );
   }
 
@@ -27,5 +29,24 @@ class HomePageTemp extends StatelessWidget {
         ));
     }
     return lista;
+  }
+
+  List<Widget> _crearItemsCorta() {
+    return opciones.map((e) {
+      return Column(
+        children: [
+          ListTile(
+            title: Text(e + '!'),
+            subtitle: Text('Subtitle de listile'),
+            leading: Icon(Icons.ac_unit),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
+          ),
+          Divider(
+            thickness: 1.0,
+          )
+        ],
+      );
+    }).toList();
   }
 }
